@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var connectDB = require("./data/connectDB.js"); //self executing
+
 var app = express();
 
 // view engine setup
