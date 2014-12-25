@@ -8,9 +8,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
+var Comm = require("./app/comm");
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -30,7 +30,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
-app.use('/users', users);
 
 // passport config
 var Account = require('./data/models/account');
@@ -40,6 +39,9 @@ passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
 mongoose.connect('mongodb://localhost/loginHandle');
+
+//Starting serial comm
+Comm.init();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

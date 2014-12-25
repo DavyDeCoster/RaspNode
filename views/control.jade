@@ -1,0 +1,10 @@
+extends layout
+block content
+    .container
+        button(onclick="forward()", value="Forward", class="button") Forward
+        button(onclick="left()", value="Left", class="button") Left
+        button(onclick="right()", value="Right", class="button") Right
+        button(onclick="stop()", value="Stop", class="button") Stop
+
+    script(src='/javascripts/jquery-1.11.2.min.js')
+    script(src='/javascripts/ajax.js')

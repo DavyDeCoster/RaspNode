@@ -1,16 +1,10 @@
-doctype html
-html
-   head
-      title= title
-      meta(name='viewport', content='width=device-width, initial-scale=1.0')
-      link(href='/css/bootstrap.min.css', rel='stylesheet', media='screen')
-      script(src='http://code.jquery.com/jquery.js')
-      script(src='js/bootstrap.min.js')
-   body
+extends layout
+block content
    .container
       h1 Register Page
       p.lead Say something worthwhile here.
-      h4= info
+      if(info)
+         h2(class="error")= info
       br
       form(role='form', action="/register",method="post", style='max-width: 300px;')
          .form-group
@@ -18,6 +12,5 @@ html
          .form-group
             input.form-control(type='password', name="password", placeholder='Password')
          button.btn.btn-default(type='submit') Submit
-      &nbsp;
    a(href='/')
       button.btn.btn-primary(type="button") Cancel

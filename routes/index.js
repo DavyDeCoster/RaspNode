@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var Account = require('../data/models/account');
+var comm = require('../app/comm');
 
 router.get('/', function (req, res) {
     res.render('index', { user : req.user });
@@ -27,8 +28,17 @@ router.get('/login', function(req, res) {
     res.render('login', { user : req.user });
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/');
+router.post('/login', function(req,res,next){
+    passport.authenticate('local', function(err, user,info){
+        if (err) {
+            return next(err); // will generate a 500 error
+        }
+        // Generate a JSON response reflecting authentication status
+        if (! user) {
+            return res.render('login',{info:"Login not found"});
+        }
+        return res.redirect('/control');
+    })(req, res, next);
 });
 
 router.get('/logout', function(req, res) {
@@ -36,8 +46,30 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-router.get('/ping', function(req, res){
-    res.send("pong!", 200);
+//CONTROL CENTER ROUTES
+
+router.get('/control', function(req,res){
+    res.render('control', { user: req.user });
+});
+
+router.get('/control/forward',function(req,res){
+    comm.forward();
+    res.send('ok');
+});
+
+router.get('/control/left',function(req,res){
+    comm.left();
+    res.send('ok');
+});
+
+router.get('/control/right',function(req,res){
+    comm.right();
+    res.send('ok');
+});
+
+router.get('/control/stop',function(req,res){
+    comm.stop();
+    res.send('ok');
 });
 
 module.exports = router;
