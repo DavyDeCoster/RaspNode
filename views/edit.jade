@@ -1,0 +1,10 @@
+extends layout
+block content
+   form(method='post' action='/admin/edit')
+      div(class="edit")
+         label(for='username') Username
+         input(value=user.username, id='username', name='username')
+         label(for='admin') Administrator
+         input(type='checkbox', checked=user.admin, id='admin' name='admin')
+         input(type='hidden', value=user._id, name="id", id="id")
+         input(type='submit', id='submit', value='Update')
