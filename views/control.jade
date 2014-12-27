@@ -1,5 +1,6 @@
 extends layout
 block content
+    a(href='/') Home
     if(user)
         .container
             p You are currently logged in as #{user.username}

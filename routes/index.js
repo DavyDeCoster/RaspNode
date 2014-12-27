@@ -108,7 +108,7 @@ router.get('/admin', function(req,res){
 
 router.get('/admin/edit/:id', function(req,res){
     Account.findById(req.param('id')).exec(function (err, docs){
-        res.render('edit', {user:docs});
+        res.render('edit', {user:docs, pagetitle : "RoboDog | Editing "+docs.username});
     });
 });
 
