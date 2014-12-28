@@ -1,19 +1,10 @@
 extends layout
 block content
-    a(href='/') Home
-    if(user)
-        .container
-            p You are currently logged in as #{user.username}
-            button(onclick="forward()", value="Forward", class="button") Forward
-            button(onclick="left()", value="Left", class="button") Left
-            button(onclick="right()", value="Right", class="button") Right
-            button(onclick="stop()", value="Stop", class="button") Stop
-
-            a(href="/logout") Logout
-    if(!user)
-        .container
-        a(href="/login") Login
-        a(href="/register") Register
-
+    .container
+        h1 Control Center
+        button.btn.btn-default(onclick="left()", value="Left", class="button") Left
+        button.btn.btn-default(onclick="forward()", value="Forward", class="button") Forward
+        button.btn.btn-default(onclick="right()", value="Right", class="button") Right
+        button.btn.btn-default(onclick="stop()", value="Stop", class="button") Stop
     script(src='/javascripts/jquery-1.11.2.min.js')
     script(src='/javascripts/ajax.js')

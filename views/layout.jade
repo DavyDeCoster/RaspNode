@@ -2,6 +2,28 @@ doctype html
 html
   head
     title= pagetitle
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/reset.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
-    block content
+    header
+      nav
+        ul
+          if(!user)
+            li
+              a(href="/login") Login
+            li
+              a(href="/register") Register
+          if(user)
+            li
+              a(href="/control") Control Center
+            if(user.admin)
+              li
+                a(href="/admin") Administrator Center
+            li
+              a(href="/logout") Logout
+            li
+              p You are currently logged in as #{user.username}
+    div(class="content")
+      block content

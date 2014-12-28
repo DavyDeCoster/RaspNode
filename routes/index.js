@@ -101,14 +101,14 @@ router.get('/admin', function(req,res){
             return res.redirect('/control');
         }
         Account.find({}).exec(function (err, docs) {
-            res.render('admin', {users:docs, pagetitle : "RoboDog | Administrator Center" });
+            res.render('admin', {users:docs, pagetitle : "RoboDog | Administrator Center", user: req.session['user'] });
         });
     }
 });
 
 router.get('/admin/edit/:id', function(req,res){
     Account.findById(req.param('id')).exec(function (err, docs){
-        res.render('edit', {user:docs, pagetitle : "RoboDog | Editing "+docs.username});
+        res.render('edit', {EditUser:docs, pagetitle : "RoboDog | Editing "+docs.username, user:req.session['user']});
     });
 });
 

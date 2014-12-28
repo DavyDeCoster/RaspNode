@@ -1,22 +1,76 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: indigo;
+  background-color: #FFAA19;
   color: #ffffff;
 }
 
-a {
-  color: turquoise;
-  margin: 10px 10px 10px 10px;
+h1
+{
+  font-size: 25px;
+}
+
+ul > li > p
+{
+  display: inline;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  height: 50px;
+  width: 100%;
+  background-color: indigo;
+}
+
+nav{
+  display: inline;
+  list-style-type: none;
+  text-align: left;
+  margin: 10px;
+}
+
+ul > li{
+  display: inline;
+  margin: 0 10px 0;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+}
+
+label
+{
+  display: inline;
+  float: left;
+  margin: 10px;
+}
+input
+{
+  display: inline;
+  float: left;
+  margin: 10px;
+
+}
+
+.user > p{
+  font-weight: bold;
+}
+
+a:hover{
+  color:lightgrey;
+  text-decoration: none;
 }
 
 .error
 {
   color: red;
 }
-
 .user
 {
+  margin: 5px;
   display: block;
   height: 31px;
   -webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -26,6 +80,13 @@ a {
   -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
   -moz-column-gap: 40px; /* Firefox */
   column-gap: 40px;
+}
+
+.content
+{
+  top: 60px;
+  position: absolute;
+  margin: 20px;
 }
 
 input
