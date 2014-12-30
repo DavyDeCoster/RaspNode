@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var Account = require('../data/models/account');
-var comm = require('../app/comm');
 
 router.get('/', function (req, res) {
     if(req.session['user']!= null)
@@ -67,26 +66,6 @@ router.get('/control', function(req,res){
         return res.render('control', { user: req.session['user'], pagetitle : "RoboDog | Control Center" });
     }
     res.redirect('/login');
-});
-
-router.get('/control/forward',function(req,res){
-    comm.forward();
-    res.send('ok');
-});
-
-router.get('/control/left',function(req,res){
-    comm.left();
-    res.send('ok');
-});
-
-router.get('/control/right',function(req,res){
-    comm.right();
-    res.send('ok');
-});
-
-router.get('/control/stop',function(req,res){
-    comm.stop();
-    res.send('ok');
 });
 
 //ADMIN CENTER

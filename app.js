@@ -13,7 +13,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 //Serial Comm
-var Comm = require("./app/comm");
+var Comm = require("./SocketIOServer/comm");
 
 var routes = require('./routes/index');
 

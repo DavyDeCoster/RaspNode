@@ -10,6 +10,10 @@ $('form').submit(function() {
     return false;
 });
 
+function command(user,command){
+    socket.emit('command',user+':'+command);
+}
+
 socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));
 });
