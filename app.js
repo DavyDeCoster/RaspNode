@@ -43,7 +43,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect('mongodb://localhost/loginHandle');
+mongoose.connect('mongodb://localhost/RoboDog');
 
 //Starting serial comm
 Comm.init();
