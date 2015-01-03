@@ -1,7 +1,7 @@
 /**
  * Created by Davy on 29/12/2014.
  */
-var socket = io('localhost:4000');
+var socket = io('localhost:3000');
 
 $('form').submit(function() {
     var message = $('#m');
